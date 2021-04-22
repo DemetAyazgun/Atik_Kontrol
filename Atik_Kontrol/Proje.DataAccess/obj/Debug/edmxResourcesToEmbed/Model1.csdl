@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AtikKontrolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DepoAlani">
+    <Key>
+      <PropertyRef Name="DepoID" />
+    </Key>
+    <Property Name="DepoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepoAlan" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DepoAtikSayisi" Type="Int32" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_FaliyetUst_DepoAlani" FromRole="DepoAlani" ToRole="FaliyetUst" />
+  </EntityType>
+  <EntityType Name="Egitim">
+    <Key>
+      <PropertyRef Name="EgitimID" />
+    </Key>
+    <Property Name="EgitimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedefKitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EgitimTarihi" Type="DateTime" Precision="0" />
+    <Property Name="KatilimciSayisi" Type="Int32" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_FaliyetUst_Egitim" FromRole="Egitim" ToRole="FaliyetUst" />
+  </EntityType>
+  <EntityType Name="FaliyetUst">
+    <Key>
+      <PropertyRef Name="FaliyetID" />
+    </Key>
+    <Property Name="FaliyetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KurumAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KurumTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UygulamaAlani" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IslemTarihi" Type="DateTime" Precision="3" />
+    <Property Name="FaliyetTurleri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DepoAlani" Relationship="Self.FK_FaliyetUst_DepoAlani" FromRole="FaliyetUst" ToRole="DepoAlani" />
+    <NavigationProperty Name="Egitim" Relationship="Self.FK_FaliyetUst_Egitim" FromRole="FaliyetUst" ToRole="Egitim" />
+    <NavigationProperty Name="Kompost" Relationship="Self.FK_FaliyetUst_Kompost" FromRole="FaliyetUst" ToRole="Kompost" />
+    <NavigationProperty Name="ToplananAtik" Relationship="Self.FK_FaliyetUst_ToplananAtik" FromRole="FaliyetUst" ToRole="ToplananAtik" />
+    <NavigationProperty Name="YerlestirilenEkipman" Relationship="Self.FK_FaliyetUst_YerlestirilenEkipman" FromRole="FaliyetUst" ToRole="YerlestirilenEkipman" />
+    <NavigationProperty Name="TesisBilgisi" Relationship="Self.FK_TesisBilgisi_FaliyetUst" FromRole="FaliyetUst" ToRole="TesisBilgisi" />
+  </EntityType>
+  <EntityType Name="IletisimBilgi">
+    <Key>
+      <PropertyRef Name="IletisimID" />
+    </Key>
+    <Property Name="IletisimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bucak_Koy_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mahalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CSBM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IcKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Kompost">
+    <Key>
+      <PropertyRef Name="KompostID" />
+    </Key>
+    <Property Name="KompostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BeslemeTarihi" Type="DateTime" Precision="0" />
+    <Property Name="EldeEtmeTarihi" Type="DateTime" Precision="0" />
+    <Property Name="KompostYöntem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BMiktar" Type="Int32" />
+    <Property Name="EMiktar" Type="Int32" />
+    <Property Name="Kapasite" Type="Int32" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_FaliyetUst_Kompost" FromRole="Kompost" ToRole="FaliyetUst" />
+  </EntityType>
+  <EntityType Name="KullaniciKyt">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ToplananAtik">
+    <Key>
+      <PropertyRef Name="AtikID" />
+    </Key>
+    <Property Name="AtikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="AtikTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Miktar" Type="Int32" />
+    <Property Name="TeslimTarih" Type="DateTime" Precision="0" />
+    <Property Name="TeslimBelgesi" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_FaliyetUst_ToplananAtik" FromRole="ToplananAtik" ToRole="FaliyetUst" />
+  </EntityType>
+  <EntityType Name="VergiGiris">
+    <Key>
+      <PropertyRef Name="VergiID" />
+    </Key>
+    <Property Name="VergiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HesapTipi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="Int32" />
+    <Property Name="VergiDairesiIl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiDairesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="YerlestirilenEkipman">
+    <Key>
+      <PropertyRef Name="EkipmanID" />
+    </Key>
+    <Property Name="EkipmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EkipTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Miktar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_FaliyetUst_YerlestirilenEkipman" FromRole="YerlestirilenEkipman" ToRole="FaliyetUst" />
+  </EntityType>
+  <EntityType Name="TesisBilgisi">
+    <Key>
+      <PropertyRef Name="TesisID" />
+    </Key>
+    <Property Name="TesisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirmaAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TesisAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VergiNo" Type="Int32" />
+    <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KurumTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YillikAtikMiktar" Type="Int32" />
+    <Property Name="YetkiliAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YetkiliTel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="YetkiliE_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KayitTarih" Type="DateTime" Precision="3" />
+    <Property Name="KatSayisi" Type="Int32" />
+    <Property Name="Yemekhane" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YesilAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Revir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FaliyetUst" Relationship="Self.FK_TesisBilgisi_FaliyetUst" FromRole="TesisBilgisi" ToRole="FaliyetUst" />
+  </EntityType>
+  <Association Name="FK_FaliyetUst_DepoAlani">
+    <End Role="DepoAlani" Type="Self.DepoAlani" Multiplicity="1" />
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DepoAlani">
+        <PropertyRef Name="DepoID" />
+      </Principal>
+      <Dependent Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaliyetUst_Egitim">
+    <End Role="Egitim" Type="Self.Egitim" Multiplicity="1" />
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Egitim">
+        <PropertyRef Name="EgitimID" />
+      </Principal>
+      <Dependent Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaliyetUst_Kompost">
+    <End Role="Kompost" Type="Self.Kompost" Multiplicity="1" />
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kompost">
+        <PropertyRef Name="KompostID" />
+      </Principal>
+      <Dependent Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaliyetUst_ToplananAtik">
+    <End Role="ToplananAtik" Type="Self.ToplananAtik" Multiplicity="1" />
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ToplananAtik">
+        <PropertyRef Name="AtikID" />
+      </Principal>
+      <Dependent Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaliyetUst_YerlestirilenEkipman">
+    <End Role="YerlestirilenEkipman" Type="Self.YerlestirilenEkipman" Multiplicity="1" />
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="YerlestirilenEkipman">
+        <PropertyRef Name="EkipmanID" />
+      </Principal>
+      <Dependent Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TesisBilgisi_FaliyetUst">
+    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="1" />
+    <End Role="TesisBilgisi" Type="Self.TesisBilgisi" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="FaliyetUst">
+        <PropertyRef Name="FaliyetID" />
+      </Principal>
+      <Dependent Role="TesisBilgisi">
+        <PropertyRef Name="TesisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AtikKontrolEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DepoAlani" EntityType="Self.DepoAlani" />
+    <EntitySet Name="Egitim" EntityType="Self.Egitim" />
+    <EntitySet Name="FaliyetUst" EntityType="Self.FaliyetUst" />
+    <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" />
+    <EntitySet Name="Kompost" EntityType="Self.Kompost" />
+    <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="ToplananAtik" EntityType="Self.ToplananAtik" />
+    <EntitySet Name="VergiGiris" EntityType="Self.VergiGiris" />
+    <EntitySet Name="YerlestirilenEkipman" EntityType="Self.YerlestirilenEkipman" />
+    <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" />
+    <AssociationSet Name="FK_FaliyetUst_DepoAlani" Association="Self.FK_FaliyetUst_DepoAlani">
+      <End Role="DepoAlani" EntitySet="DepoAlani" />
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaliyetUst_Egitim" Association="Self.FK_FaliyetUst_Egitim">
+      <End Role="Egitim" EntitySet="Egitim" />
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaliyetUst_Kompost" Association="Self.FK_FaliyetUst_Kompost">
+      <End Role="Kompost" EntitySet="Kompost" />
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaliyetUst_ToplananAtik" Association="Self.FK_FaliyetUst_ToplananAtik">
+      <End Role="ToplananAtik" EntitySet="ToplananAtik" />
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaliyetUst_YerlestirilenEkipman" Association="Self.FK_FaliyetUst_YerlestirilenEkipman">
+      <End Role="YerlestirilenEkipman" EntitySet="YerlestirilenEkipman" />
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TesisBilgisi_FaliyetUst" Association="Self.FK_TesisBilgisi_FaliyetUst">
+      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
+      <End Role="TesisBilgisi" EntitySet="TesisBilgisi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
