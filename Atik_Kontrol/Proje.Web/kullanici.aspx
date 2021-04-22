@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            Liste İçin Tıklayın!!
             <asp:Button ID="Button1" runat="server" Text="Kullanıcı Listesini Getir" OnClick="Button1_Click" />
             <br />
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
