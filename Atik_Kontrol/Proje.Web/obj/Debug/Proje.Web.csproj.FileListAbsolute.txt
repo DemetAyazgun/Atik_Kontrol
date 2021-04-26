@@ -67,3 +67,7 @@ C:\Users\DEMET\Desktop\Atik_Kontrol\Proje.Web\bin\Proje.Business.dll.config
 C:\Users\DEMET\Desktop\Atik_Kontrol\Proje.Web\bin\Proje.DataAccess.dll.config
 C:\Users\DEMET\Desktop\Atik_Kontrol\Proje.Web\bin\EntityFramework.xml
 C:\Users\DEMET\Desktop\Atik_Kontrol\Proje.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.Web\obj\Debug\Proje.Web.csprojAssemblyReference.cache
+C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.Web\obj\Debug\Proje.Web.csproj.CoreCompileInputs.cache
+C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.Web\obj\Debug\Proje.Web.dll
+C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.Web\obj\Debug\Proje.Web.pdb
