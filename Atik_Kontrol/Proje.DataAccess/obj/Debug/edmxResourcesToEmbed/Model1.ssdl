@@ -1,35 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AtikKontrolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="DepoAlani">
-    <Key>
-      <PropertyRef Name="DepoID" />
-    </Key>
-    <Property Name="DepoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DepoAlan" Type="nchar" MaxLength="10" />
-    <Property Name="DepoAtikSayisi" Type="int" />
-  </EntityType>
-  <EntityType Name="Egitim">
-    <Key>
-      <PropertyRef Name="EgitimID" />
-    </Key>
-    <Property Name="EgitimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Icerik" Type="nvarchar(max)" />
-    <Property Name="HedefKitle" Type="nvarchar(max)" />
-    <Property Name="EgitimTarihi" Type="date" />
-    <Property Name="KatilimciSayisi" Type="int" />
-  </EntityType>
-  <EntityType Name="FaliyetUst">
-    <Key>
-      <PropertyRef Name="FaliyetID" />
-    </Key>
-    <Property Name="FaliyetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="KurumAd" Type="nvarchar(max)" />
-    <Property Name="KurumTur" Type="nvarchar(max)" />
-    <Property Name="UygulamaAlani" Type="nvarchar(max)" />
-    <Property Name="Aciklama" Type="nvarchar(max)" />
-    <Property Name="IslemTarihi" Type="datetime" />
-    <Property Name="FaliyetTurleri" Type="nvarchar(max)" />
-  </EntityType>
   <EntityType Name="IletisimBilgi">
     <Key>
       <PropertyRef Name="IletisimID" />
@@ -46,18 +16,6 @@
     <Property Name="Fax" Type="varchar" MaxLength="50" />
     <Property Name="E-posta" Type="varchar(max)" />
   </EntityType>
-  <EntityType Name="Kompost">
-    <Key>
-      <PropertyRef Name="KompostID" />
-    </Key>
-    <Property Name="KompostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BeslemeTarihi" Type="date" />
-    <Property Name="EldeEtmeTarihi" Type="date" />
-    <Property Name="KompostYöntem" Type="nvarchar(max)" />
-    <Property Name="BMiktar" Type="int" />
-    <Property Name="EMiktar" Type="int" />
-    <Property Name="Kapasite" Type="int" />
-  </EntityType>
   <EntityType Name="KullaniciKyt">
     <Key>
       <PropertyRef Name="KullaniciID" />
@@ -70,16 +28,6 @@
     <Property Name="Soyad" Type="nvarchar(max)" />
     <Property Name="Tel" Type="varchar" MaxLength="50" />
     <Property Name="E-posta" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'AtikKontrol.dbo.TesisBilgisi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -106,118 +54,9 @@ warning 6002: The table/view 'AtikKontrol.dbo.TesisBilgisi' does not have a prim
     <Property Name="Revir" Type="nvarchar" MaxLength="50" />
     <Property Name="Aciklama" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="ToplananAtik">
-    <Key>
-      <PropertyRef Name="AtikID" />
-    </Key>
-    <Property Name="AtikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Tarih" Type="date" />
-    <Property Name="AtikTur" Type="nvarchar(max)" />
-    <Property Name="Miktar" Type="int" />
-    <Property Name="TeslimTarih" Type="date" />
-    <Property Name="TeslimBelgesi" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="VergiGiris">
-    <Key>
-      <PropertyRef Name="VergiID" />
-    </Key>
-    <Property Name="VergiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="HesapTipi" Type="nvarchar(max)" />
-    <Property Name="VergiNo" Type="int" />
-    <Property Name="VergiDairesiIl" Type="nvarchar(max)" />
-    <Property Name="VergiDairesi" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="YerlestirilenEkipman">
-    <Key>
-      <PropertyRef Name="EkipmanID" />
-    </Key>
-    <Property Name="EkipmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EkipTur" Type="nvarchar(max)" />
-    <Property Name="Miktar" Type="nvarchar(max)" />
-  </EntityType>
-  <Association Name="FK_FaliyetUst_DepoAlani">
-    <End Role="DepoAlani" Type="Self.DepoAlani" Multiplicity="1" />
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DepoAlani">
-        <PropertyRef Name="DepoID" />
-      </Principal>
-      <Dependent Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FaliyetUst_Egitim">
-    <End Role="Egitim" Type="Self.Egitim" Multiplicity="1" />
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Egitim">
-        <PropertyRef Name="EgitimID" />
-      </Principal>
-      <Dependent Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FaliyetUst_Kompost">
-    <End Role="Kompost" Type="Self.Kompost" Multiplicity="1" />
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Kompost">
-        <PropertyRef Name="KompostID" />
-      </Principal>
-      <Dependent Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FaliyetUst_ToplananAtik">
-    <End Role="ToplananAtik" Type="Self.ToplananAtik" Multiplicity="1" />
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="ToplananAtik">
-        <PropertyRef Name="AtikID" />
-      </Principal>
-      <Dependent Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FaliyetUst_YerlestirilenEkipman">
-    <End Role="YerlestirilenEkipman" Type="Self.YerlestirilenEkipman" Multiplicity="1" />
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="YerlestirilenEkipman">
-        <PropertyRef Name="EkipmanID" />
-      </Principal>
-      <Dependent Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TesisBilgisi_FaliyetUst">
-    <End Role="FaliyetUst" Type="Self.FaliyetUst" Multiplicity="1" />
-    <End Role="TesisBilgisi" Type="Self.TesisBilgisi" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="FaliyetUst">
-        <PropertyRef Name="FaliyetID" />
-      </Principal>
-      <Dependent Role="TesisBilgisi">
-        <PropertyRef Name="TesisID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="AtikKontrolModelStoreContainer">
-    <EntitySet Name="DepoAlani" EntityType="Self.DepoAlani" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Egitim" EntityType="Self.Egitim" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="FaliyetUst" EntityType="Self.FaliyetUst" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Kompost" EntityType="Self.Kompost" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ToplananAtik" EntityType="Self.ToplananAtik" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="VergiGiris" EntityType="Self.VergiGiris" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="YerlestirilenEkipman" EntityType="Self.YerlestirilenEkipman" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [TesisBilgisi].[TesisID] AS [TesisID], 
@@ -240,29 +79,5 @@ warning 6002: The table/view 'AtikKontrol.dbo.TesisBilgisi' does not have a prim
     [TesisBilgisi].[Aciklama] AS [Aciklama]
     FROM [dbo].[TesisBilgisi] AS [TesisBilgisi]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK_FaliyetUst_DepoAlani" Association="Self.FK_FaliyetUst_DepoAlani">
-      <End Role="DepoAlani" EntitySet="DepoAlani" />
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FaliyetUst_Egitim" Association="Self.FK_FaliyetUst_Egitim">
-      <End Role="Egitim" EntitySet="Egitim" />
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FaliyetUst_Kompost" Association="Self.FK_FaliyetUst_Kompost">
-      <End Role="Kompost" EntitySet="Kompost" />
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FaliyetUst_ToplananAtik" Association="Self.FK_FaliyetUst_ToplananAtik">
-      <End Role="ToplananAtik" EntitySet="ToplananAtik" />
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FaliyetUst_YerlestirilenEkipman" Association="Self.FK_FaliyetUst_YerlestirilenEkipman">
-      <End Role="YerlestirilenEkipman" EntitySet="YerlestirilenEkipman" />
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TesisBilgisi_FaliyetUst" Association="Self.FK_TesisBilgisi_FaliyetUst">
-      <End Role="FaliyetUst" EntitySet="FaliyetUst" />
-      <End Role="TesisBilgisi" EntitySet="TesisBilgisi" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -32,7 +32,5 @@ namespace Proje.DataAccess
         public string YesilAlan { get; set; }
         public string Revir { get; set; }
         public string Aciklama { get; set; }
-    
-        public virtual FaliyetUst FaliyetUst { get; set; }
     }
 }

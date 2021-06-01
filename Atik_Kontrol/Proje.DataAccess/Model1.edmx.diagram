@@ -5,23 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1f9903332078429d8630129c37481bce" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="AtikKontrolModel.DepoAlani" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.Egitim" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.FaliyetUst" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.IletisimBilgi" Width="1.5" PointX="2.125" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.Kompost" Width="1.5" PointX="8.875" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtikKontrolModel.IletisimBilgi" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AtikKontrolModel.KullaniciKyt" Width="1.5" PointX="7.125" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.ToplananAtik" Width="1.5" PointX="4.375" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.VergiGiris" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.YerlestirilenEkipman" Width="1.5" PointX="6.125" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AtikKontrolModel.TesisBilgisi" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
-        <AssociationConnector Association="AtikKontrolModel.FK_FaliyetUst_DepoAlani" ManuallyRouted="false" />
-        <AssociationConnector Association="AtikKontrolModel.FK_FaliyetUst_Egitim" ManuallyRouted="false" />
-        <AssociationConnector Association="AtikKontrolModel.FK_FaliyetUst_Kompost" ManuallyRouted="false" />
-        <AssociationConnector Association="AtikKontrolModel.FK_FaliyetUst_ToplananAtik" ManuallyRouted="false" />
-        <AssociationConnector Association="AtikKontrolModel.FK_FaliyetUst_YerlestirilenEkipman" ManuallyRouted="false" />
-        <AssociationConnector Association="AtikKontrolModel.FK_TesisBilgisi_FaliyetUst" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

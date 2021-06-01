@@ -25,16 +25,8 @@ namespace Proje.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DepoAlani> DepoAlani { get; set; }
-        public virtual DbSet<Egitim> Egitim { get; set; }
-        public virtual DbSet<FaliyetUst> FaliyetUst { get; set; }
         public virtual DbSet<IletisimBilgi> IletisimBilgi { get; set; }
-        public virtual DbSet<Kompost> Kompost { get; set; }
         public virtual DbSet<KullaniciKyt> KullaniciKyt { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<ToplananAtik> ToplananAtik { get; set; }
-        public virtual DbSet<VergiGiris> VergiGiris { get; set; }
-        public virtual DbSet<YerlestirilenEkipman> YerlestirilenEkipman { get; set; }
         public virtual DbSet<TesisBilgisi> TesisBilgisi { get; set; }
     }
 }

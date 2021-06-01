@@ -1,13 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Kullanici.aspx.cs" Inherits="Proje.Web.Kullanici" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="KullaniciKyt.aspx.cs" Inherits="Proje.Web.KullaniciKyt" %>
 
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
   <meta charset="UTF-8">
 
-  <title>Kullanıcı Giriş</title>
+  <title>Kullanıcı Kayıt</title>
     <link href="Template/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Template/css/all.css" rel="stylesheet" />
     <script src="Template/js/bootstrap.bundle.min.js"></script>
@@ -154,37 +155,58 @@
 <body>
 <form id="form1" runat="server">  
     <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
-   <div class="container" style="width:25%;background-color:white;height:350px;margin-top:90px;border-radius:10px;">
+   <div class="container" style="width:31%;background-color:white;height:450px;margin-top:90px;border-radius:10px;">
        <div class="form-group">
-           <h5 class="text-center">Kullanıcı Girişi</h5>
+           <h5 class="text-center">Kullanıcı Kayıt</h5>
            
        </div>
-       <hr />
-       <div class="form-group">
+      <hr />
+       <div class="form-group" style="float: left; margin: 5px;">
            <b>Eposta</b>
-           <asp:TextBox ID="TxtGiris" CssClass="form-control" runat="server"></asp:TextBox>
+           <asp:TextBox ID="TxtPosta" CssClass="form-control" runat="server"></asp:TextBox>
 
        </div>
-       <div class="form-group">
+       <div class="form-group" style="float: right; margin: 5px;">
+           <b>Tc</b>
+           <asp:TextBox ID="TxtTc" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: left; margin: 5px;">
+           <b>Ad</b>
+           <asp:TextBox ID="TxtAd" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: right; margin: 5px;">
+           <b>Soyad</b>
+           <asp:TextBox ID="TxtSoyad" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: left; margin: 5px;">
+           <b>Tel</b>
+           <asp:TextBox ID="TxtTel" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: right; margin: 5px;">
+           <b>İl</b>
+           <asp:TextBox ID="TxtIl" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: left; margin: 5px;">
+           <b>İlçe</b>
+           <asp:TextBox ID="TxtIlce" CssClass="form-control" runat="server"></asp:TextBox>
+
+       </div>
+       <div class="form-group" style="float: right; margin: 5px;">
            <b>Şifre</b>
            <asp:TextBox ID="TxtSifre" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+
        </div>
+
        <div class="form-group">
-           <asp:CheckBox ID="hatirla" Text="Beni Hatırla" ForeColor="#d5d5d5" runat="server" />
+           <asp:Button ID="BtnKaydol" CssClass="btn btn-dark form-control" runat="server" Text="Kaydol" OnClick="BtnKaydol_Click" />
        </div>
-       <div class="form-group">
-           <asp:Button ID="BtnGiris" CssClass="btn btn-dark form-control" runat="server" Text="Giriş Yap" OnClick="BtnGiris_Click" />
-       </div>
-       <div class="form-group">
-           <div class="form-group" style="float:left;color:lightgray">
-               <a href ="KullaniciKyt.aspx">Yeni Kullanıcı</a>
-           </div>
-       </div>
-        <div class="form-group">
-           <div class="form-group" style="float:right;color:lightgray">
-               <a href ="#">Şifremi Unuttum</a>
-           </div>
-       </div>
+       <asp:Label ID="lblUyari" runat="server" Text="" ></asp:Label>
+       <input type="button" onClick="location.href='Kullanici.aspx'" value="Giriş" style="float: right;background-color:black;color:white;" />
    </div>
  </form>
 </body>

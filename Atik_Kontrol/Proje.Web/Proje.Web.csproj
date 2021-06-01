@@ -76,16 +76,22 @@
   <ItemGroup>
     <Content Include="Content.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="kullanici.aspx" />
+    <Content Include="Firma.aspx" />
+    <Content Include="Kullanici.aspx" />
+    <Content Include="KullaniciKyt.aspx" />
     <Content Include="Template\404.html" />
     <Content Include="Template\blank.html" />
     <Content Include="Template\buttons.html" />
     <Content Include="Template\cards.html" />
     <Content Include="Template\charts.html" />
+    <Content Include="Template\css\all.css" />
+    <Content Include="Template\css\bootstrap.min.css" />
     <Content Include="Template\css\sb-admin-2.css" />
     <Content Include="Template\css\sb-admin-2.min.css" />
+    <Content Include="Template\css\style.css" />
     <Content Include="Template\forgot-password.html" />
     <Content Include="Template\gulpfile.js" />
+    <Content Include="Template\img\Atık.jpg" />
     <Content Include="Template\img\undraw_posting_photo.svg" />
     <Content Include="Template\img\undraw_profile.svg" />
     <Content Include="Template\img\undraw_profile_1.svg" />
@@ -93,12 +99,15 @@
     <Content Include="Template\img\undraw_profile_3.svg" />
     <Content Include="Template\img\undraw_rocket.svg" />
     <Content Include="Template\index.html" />
+    <Content Include="Template\js\bootstrap.bundle.min.js" />
     <Content Include="Template\js\demo\chart-area-demo.js" />
     <Content Include="Template\js\demo\chart-bar-demo.js" />
     <Content Include="Template\js\demo\chart-pie-demo.js" />
     <Content Include="Template\js\demo\datatables-demo.js" />
+    <Content Include="Template\js\jquery.slim.min.js" />
     <Content Include="Template\js\sb-admin-2.js" />
     <Content Include="Template\js\sb-admin-2.min.js" />
+    <Content Include="Template\js\script.js" />
     <Content Include="Template\login.html" />
     <Content Include="Template\PRO_UPGRADE.txt" />
     <Content Include="Template\register.html" />
@@ -3500,12 +3509,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="kullanici.aspx.cs">
-      <DependentUpon>kullanici.aspx</DependentUpon>
+    <Compile Include="Firma.aspx.cs">
+      <DependentUpon>Firma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="kullanici.aspx.designer.cs">
-      <DependentUpon>kullanici.aspx</DependentUpon>
+    <Compile Include="Firma.aspx.designer.cs">
+      <DependentUpon>Firma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici.aspx.cs">
+      <DependentUpon>Kullanici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanici.aspx.designer.cs">
+      <DependentUpon>Kullanici.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciKyt.aspx.cs">
+      <DependentUpon>KullaniciKyt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KullaniciKyt.aspx.designer.cs">
+      <DependentUpon>KullaniciKyt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Proje\Business.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3871,6 +3894,7 @@
     <Content Include="Template\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Template\vendor\jquery\jquery.min.map" />
     <Content Include="Template\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Template\scss\style.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
