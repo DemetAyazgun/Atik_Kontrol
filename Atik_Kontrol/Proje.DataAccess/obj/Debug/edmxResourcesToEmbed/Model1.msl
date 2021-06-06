@@ -1,58 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="AtikKontrolModelStoreContainer" CdmEntityContainer="AtikKontrolEntities">
-    <EntitySetMapping Name="IletisimBilgi">
-      <EntityTypeMapping TypeName="AtikKontrolModel.IletisimBilgi">
-        <MappingFragment StoreEntitySet="IletisimBilgi">
-          <ScalarProperty Name="IletisimID" ColumnName="IletisimID" />
-          <ScalarProperty Name="Il" ColumnName="Il" />
-          <ScalarProperty Name="Ilce" ColumnName="Ilce" />
-          <ScalarProperty Name="Bucak_Koy_" ColumnName="Bucak(Koy)" />
-          <ScalarProperty Name="Mahalle" ColumnName="Mahalle" />
-          <ScalarProperty Name="CSBM" ColumnName="CSBM" />
-          <ScalarProperty Name="DisKapi" ColumnName="DisKapi" />
-          <ScalarProperty Name="IcKapi" ColumnName="IcKapi" />
-          <ScalarProperty Name="Tel" ColumnName="Tel" />
-          <ScalarProperty Name="Fax" ColumnName="Fax" />
-          <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+  <EntityContainerMapping StorageEntityContainer="AtikUygulamaModelStoreContainer" CdmEntityContainer="AtikUygulamaEntities">
+    <EntitySetMapping Name="AtikEkle">
+      <EntityTypeMapping TypeName="AtikUygulamaModel.AtikEkle">
+        <MappingFragment StoreEntitySet="AtikEkle">
+          <ScalarProperty Name="AtikIslem" ColumnName="AtikIslem" />
+          <ScalarProperty Name="AtikTur" ColumnName="AtikTur" />
+          <ScalarProperty Name="AtikAdres" ColumnName="AtikAdres" />
+          <ScalarProperty Name="AtikID" ColumnName="AtikID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtikIslem">
+      <EntityTypeMapping TypeName="AtikUygulamaModel.AtikIslem">
+        <MappingFragment StoreEntitySet="AtikIslem">
+          <ScalarProperty Name="TanimID" ColumnName="TanimID" />
+          <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+          <ScalarProperty Name="Ruhsat" ColumnName="Ruhsat" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Tur" ColumnName="Tur" />
+          <ScalarProperty Name="Kurum" ColumnName="Kurum" />
+          <ScalarProperty Name="TAd" ColumnName="TAd" />
+          <ScalarProperty Name="TSoyad" ColumnName="TSoyad" />
+          <ScalarProperty Name="TTel" ColumnName="TTel" />
+          <ScalarProperty Name="ITarih" ColumnName="ITarih" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="KullaniciKyt">
-      <EntityTypeMapping TypeName="AtikKontrolModel.KullaniciKyt">
+      <EntityTypeMapping TypeName="AtikUygulamaModel.KullaniciKyt">
         <MappingFragment StoreEntitySet="KullaniciKyt">
           <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
-          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Tc" ColumnName="Tc" />
           <ScalarProperty Name="Il" ColumnName="Il" />
           <ScalarProperty Name="Ilce" ColumnName="Ilce" />
           <ScalarProperty Name="Ad" ColumnName="Ad" />
           <ScalarProperty Name="Soyad" ColumnName="Soyad" />
           <ScalarProperty Name="Tel" ColumnName="Tel" />
-          <ScalarProperty Name="E_posta" ColumnName="E-posta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TesisBilgisi">
-      <EntityTypeMapping TypeName="AtikKontrolModel.TesisBilgisi">
-        <MappingFragment StoreEntitySet="TesisBilgisi">
-          <ScalarProperty Name="TesisID" ColumnName="TesisID" />
-          <ScalarProperty Name="FirmaAd" ColumnName="FirmaAd" />
-          <ScalarProperty Name="TesisAd" ColumnName="TesisAd" />
-          <ScalarProperty Name="VergiNo" ColumnName="VergiNo" />
-          <ScalarProperty Name="Il" ColumnName="Il" />
-          <ScalarProperty Name="Ilce" ColumnName="Ilce" />
-          <ScalarProperty Name="Adres" ColumnName="Adres" />
-          <ScalarProperty Name="KurumTur" ColumnName="KurumTur" />
-          <ScalarProperty Name="YillikAtikMiktar" ColumnName="YillikAtikMiktar" />
-          <ScalarProperty Name="YetkiliAdSoyad" ColumnName="YetkiliAdSoyad" />
-          <ScalarProperty Name="YetkiliTel" ColumnName="YetkiliTel" />
-          <ScalarProperty Name="YetkiliE_posta" ColumnName="YetkiliE-posta" />
-          <ScalarProperty Name="KayitTarih" ColumnName="KayitTarih" />
-          <ScalarProperty Name="KatSayisi" ColumnName="KatSayisi" />
-          <ScalarProperty Name="Yemekhane" ColumnName="Yemekhane" />
-          <ScalarProperty Name="YesilAlan" ColumnName="YesilAlan" />
-          <ScalarProperty Name="Revir" ColumnName="Revir" />
-          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="SifreTekrar" ColumnName="SifreTekrar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

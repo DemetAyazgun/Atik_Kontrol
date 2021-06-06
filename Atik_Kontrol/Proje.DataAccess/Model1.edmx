@@ -4,207 +4,144 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AtikKontrolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="IletisimBilgi">
+    <Schema Namespace="AtikUygulamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AtikEkle">
           <Key>
-            <PropertyRef Name="IletisimID" />
+            <PropertyRef Name="AtikID" />
           </Key>
-          <Property Name="IletisimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Il" Type="nvarchar(max)" />
-          <Property Name="Ilce" Type="nvarchar(max)" />
-          <Property Name="Bucak(Koy)" Type="nvarchar(max)" />
-          <Property Name="Mahalle" Type="nvarchar(max)" />
-          <Property Name="CSBM" Type="nvarchar(max)" />
-          <Property Name="DisKapi" Type="varchar" MaxLength="50" />
-          <Property Name="IcKapi" Type="varchar" MaxLength="50" />
-          <Property Name="Tel" Type="varchar" MaxLength="50" />
-          <Property Name="Fax" Type="varchar" MaxLength="50" />
-          <Property Name="E-posta" Type="varchar(max)" />
+          <Property Name="AtikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AtikAdres" Type="nvarchar(max)" />
+          <Property Name="AtikTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="AtikIslem" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AtikIslem">
+          <Key>
+            <PropertyRef Name="TanimID" />
+          </Key>
+          <Property Name="TanimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plaka" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ruhsat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Tur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kurum" Type="nvarchar(max)" />
+          <Property Name="TAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="TSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="TTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="ITarih" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="KullaniciKyt">
           <Key>
             <PropertyRef Name="KullaniciID" />
           </Key>
           <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TC" Type="varchar(max)" />
+          <Property Name="Tc" Type="nvarchar(max)" />
           <Property Name="Il" Type="nvarchar(max)" />
           <Property Name="Ilce" Type="nvarchar(max)" />
           <Property Name="Ad" Type="nvarchar(max)" />
           <Property Name="Soyad" Type="nvarchar(max)" />
-          <Property Name="Tel" Type="varchar" MaxLength="50" />
-          <Property Name="E-posta" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Eposta" Type="nvarchar(max)" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+          <Property Name="SifreTekrar" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'AtikKontrol.dbo.TesisBilgisi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="TesisBilgisi">
-          <Key>
-            <PropertyRef Name="TesisID" />
-          </Key>
-          <Property Name="TesisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirmaAd" Type="nvarchar(max)" />
-          <Property Name="TesisAd" Type="nvarchar(max)" />
-          <Property Name="VergiNo" Type="int" />
-          <Property Name="Il" Type="nvarchar(max)" />
-          <Property Name="Ilce" Type="nvarchar(max)" />
-          <Property Name="Adres" Type="nvarchar(max)" />
-          <Property Name="KurumTur" Type="nvarchar(max)" />
-          <Property Name="YillikAtikMiktar" Type="int" />
-          <Property Name="YetkiliAdSoyad" Type="nvarchar(max)" />
-          <Property Name="YetkiliTel" Type="varchar" MaxLength="50" />
-          <Property Name="YetkiliE-posta" Type="varchar" MaxLength="50" />
-          <Property Name="KayitTarih" Type="datetime" />
-          <Property Name="KatSayisi" Type="int" />
-          <Property Name="Yemekhane" Type="nvarchar" MaxLength="50" />
-          <Property Name="YesilAlan" Type="nvarchar" MaxLength="50" />
-          <Property Name="Revir" Type="nvarchar" MaxLength="50" />
-          <Property Name="Aciklama" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityContainer Name="AtikKontrolModelStoreContainer">
-          <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="AtikUygulamaModelStoreContainer">
+          <EntitySet Name="AtikEkle" EntityType="Self.AtikEkle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtikIslem" EntityType="Self.AtikIslem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TesisBilgisi].[TesisID] AS [TesisID], 
-    [TesisBilgisi].[FirmaAd] AS [FirmaAd], 
-    [TesisBilgisi].[TesisAd] AS [TesisAd], 
-    [TesisBilgisi].[VergiNo] AS [VergiNo], 
-    [TesisBilgisi].[Il] AS [Il], 
-    [TesisBilgisi].[Ilce] AS [Ilce], 
-    [TesisBilgisi].[Adres] AS [Adres], 
-    [TesisBilgisi].[KurumTur] AS [KurumTur], 
-    [TesisBilgisi].[YillikAtikMiktar] AS [YillikAtikMiktar], 
-    [TesisBilgisi].[YetkiliAdSoyad] AS [YetkiliAdSoyad], 
-    [TesisBilgisi].[YetkiliTel] AS [YetkiliTel], 
-    [TesisBilgisi].[YetkiliE-posta] AS [YetkiliE-posta], 
-    [TesisBilgisi].[KayitTarih] AS [KayitTarih], 
-    [TesisBilgisi].[KatSayisi] AS [KatSayisi], 
-    [TesisBilgisi].[Yemekhane] AS [Yemekhane], 
-    [TesisBilgisi].[YesilAlan] AS [YesilAlan], 
-    [TesisBilgisi].[Revir] AS [Revir], 
-    [TesisBilgisi].[Aciklama] AS [Aciklama]
-    FROM [dbo].[TesisBilgisi] AS [TesisBilgisi]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AtikKontrolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="IletisimBilgi">
+      <Schema Namespace="AtikUygulamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AtikEkle">
           <Key>
-            <PropertyRef Name="IletisimID" />
+            <PropertyRef Name="AtikID" />
           </Key>
-          <Property Name="IletisimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Bucak_Koy_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Mahalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CSBM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DisKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IcKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AtikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AtikAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AtikTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AtikIslem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AtikIslem">
+          <Key>
+            <PropertyRef Name="TanimID" />
+          </Key>
+          <Property Name="TanimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plaka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ruhsat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kurum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ITarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KullaniciKyt">
           <Key>
             <PropertyRef Name="KullaniciID" />
           </Key>
           <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SifreTekrar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="TesisBilgisi">
-          <Key>
-            <PropertyRef Name="TesisID" />
-          </Key>
-          <Property Name="TesisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirmaAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TesisAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="VergiNo" Type="Int32" />
-          <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KurumTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="YillikAtikMiktar" Type="Int32" />
-          <Property Name="YetkiliAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="YetkiliTel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="YetkiliE_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="KayitTarih" Type="DateTime" Precision="3" />
-          <Property Name="KatSayisi" Type="Int32" />
-          <Property Name="Yemekhane" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="YesilAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Revir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityContainer Name="AtikKontrolEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" />
+        <EntityContainer Name="AtikUygulamaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AtikEkle" EntityType="Self.AtikEkle" />
+          <EntitySet Name="AtikIslem" EntityType="Self.AtikIslem" />
           <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" />
-          <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AtikKontrolModelStoreContainer" CdmEntityContainer="AtikKontrolEntities">
-          <EntitySetMapping Name="IletisimBilgi">
-            <EntityTypeMapping TypeName="AtikKontrolModel.IletisimBilgi">
-              <MappingFragment StoreEntitySet="IletisimBilgi">
-                <ScalarProperty Name="IletisimID" ColumnName="IletisimID" />
-                <ScalarProperty Name="Il" ColumnName="Il" />
-                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
-                <ScalarProperty Name="Bucak_Koy_" ColumnName="Bucak(Koy)" />
-                <ScalarProperty Name="Mahalle" ColumnName="Mahalle" />
-                <ScalarProperty Name="CSBM" ColumnName="CSBM" />
-                <ScalarProperty Name="DisKapi" ColumnName="DisKapi" />
-                <ScalarProperty Name="IcKapi" ColumnName="IcKapi" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+        <EntityContainerMapping StorageEntityContainer="AtikUygulamaModelStoreContainer" CdmEntityContainer="AtikUygulamaEntities">
+          <EntitySetMapping Name="AtikEkle">
+            <EntityTypeMapping TypeName="AtikUygulamaModel.AtikEkle">
+              <MappingFragment StoreEntitySet="AtikEkle">
+                <ScalarProperty Name="AtikIslem" ColumnName="AtikIslem" />
+                <ScalarProperty Name="AtikTur" ColumnName="AtikTur" />
+                <ScalarProperty Name="AtikAdres" ColumnName="AtikAdres" />
+                <ScalarProperty Name="AtikID" ColumnName="AtikID" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtikIslem">
+            <EntityTypeMapping TypeName="AtikUygulamaModel.AtikIslem">
+              <MappingFragment StoreEntitySet="AtikIslem">
+                <ScalarProperty Name="TanimID" ColumnName="TanimID" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="Ruhsat" ColumnName="Ruhsat" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Tur" ColumnName="Tur" />
+                <ScalarProperty Name="Kurum" ColumnName="Kurum" />
+                <ScalarProperty Name="TAd" ColumnName="TAd" />
+                <ScalarProperty Name="TSoyad" ColumnName="TSoyad" />
+                <ScalarProperty Name="TTel" ColumnName="TTel" />
+                <ScalarProperty Name="ITarih" ColumnName="ITarih" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KullaniciKyt">
-            <EntityTypeMapping TypeName="AtikKontrolModel.KullaniciKyt">
+            <EntityTypeMapping TypeName="AtikUygulamaModel.KullaniciKyt">
               <MappingFragment StoreEntitySet="KullaniciKyt">
                 <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
-                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="Tc" ColumnName="Tc" />
                 <ScalarProperty Name="Il" ColumnName="Il" />
                 <ScalarProperty Name="Ilce" ColumnName="Ilce" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Soyad" ColumnName="Soyad" />
                 <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="E_posta" ColumnName="E-posta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TesisBilgisi">
-            <EntityTypeMapping TypeName="AtikKontrolModel.TesisBilgisi">
-              <MappingFragment StoreEntitySet="TesisBilgisi">
-                <ScalarProperty Name="TesisID" ColumnName="TesisID" />
-                <ScalarProperty Name="FirmaAd" ColumnName="FirmaAd" />
-                <ScalarProperty Name="TesisAd" ColumnName="TesisAd" />
-                <ScalarProperty Name="VergiNo" ColumnName="VergiNo" />
-                <ScalarProperty Name="Il" ColumnName="Il" />
-                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
-                <ScalarProperty Name="Adres" ColumnName="Adres" />
-                <ScalarProperty Name="KurumTur" ColumnName="KurumTur" />
-                <ScalarProperty Name="YillikAtikMiktar" ColumnName="YillikAtikMiktar" />
-                <ScalarProperty Name="YetkiliAdSoyad" ColumnName="YetkiliAdSoyad" />
-                <ScalarProperty Name="YetkiliTel" ColumnName="YetkiliTel" />
-                <ScalarProperty Name="YetkiliE_posta" ColumnName="YetkiliE-posta" />
-                <ScalarProperty Name="KayitTarih" ColumnName="KayitTarih" />
-                <ScalarProperty Name="KatSayisi" ColumnName="KatSayisi" />
-                <ScalarProperty Name="Yemekhane" ColumnName="Yemekhane" />
-                <ScalarProperty Name="YesilAlan" ColumnName="YesilAlan" />
-                <ScalarProperty Name="Revir" ColumnName="Revir" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="SifreTekrar" ColumnName="SifreTekrar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

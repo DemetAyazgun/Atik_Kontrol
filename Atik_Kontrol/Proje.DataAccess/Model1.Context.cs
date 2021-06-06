@@ -13,10 +13,10 @@ namespace Proje.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AtikKontrolEntities : DbContext
+    public partial class AtikUygulamaEntities : DbContext
     {
-        public AtikKontrolEntities()
-            : base("name=AtikKontrolEntities")
+        public AtikUygulamaEntities()
+            : base("name=AtikUygulamaEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace Proje.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<IletisimBilgi> IletisimBilgi { get; set; }
+        public virtual DbSet<AtikEkle> AtikEkle { get; set; }
+        public virtual DbSet<AtikIslem> AtikIslem { get; set; }
         public virtual DbSet<KullaniciKyt> KullaniciKyt { get; set; }
-        public virtual DbSet<TesisBilgisi> TesisBilgisi { get; set; }
     }
 }

@@ -1,60 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AtikKontrolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="IletisimBilgi">
+<Schema Namespace="AtikUygulamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AtikEkle">
     <Key>
-      <PropertyRef Name="IletisimID" />
+      <PropertyRef Name="AtikID" />
     </Key>
-    <Property Name="IletisimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Bucak_Koy_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Mahalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="CSBM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DisKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IcKapi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AtikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AtikAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AtikTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AtikIslem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AtikIslem">
+    <Key>
+      <PropertyRef Name="TanimID" />
+    </Key>
+    <Property Name="TanimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Plaka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ruhsat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kurum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ITarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KullaniciKyt">
     <Key>
       <PropertyRef Name="KullaniciID" />
     </Key>
     <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="E_posta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SifreTekrar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="TesisBilgisi">
-    <Key>
-      <PropertyRef Name="TesisID" />
-    </Key>
-    <Property Name="TesisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirmaAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="TesisAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="VergiNo" Type="Int32" />
-    <Property Name="Il" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="KurumTur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="YillikAtikMiktar" Type="Int32" />
-    <Property Name="YetkiliAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="YetkiliTel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="YetkiliE_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="KayitTarih" Type="DateTime" Precision="3" />
-    <Property Name="KatSayisi" Type="Int32" />
-    <Property Name="Yemekhane" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="YesilAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Revir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityContainer Name="AtikKontrolEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" />
+  <EntityContainer Name="AtikUygulamaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AtikEkle" EntityType="Self.AtikEkle" />
+    <EntitySet Name="AtikIslem" EntityType="Self.AtikIslem" />
     <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" />
-    <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" />
   </EntityContainer>
 </Schema>

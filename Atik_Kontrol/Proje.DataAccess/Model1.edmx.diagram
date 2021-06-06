@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1f9903332078429d8630129c37481bce" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="AtikKontrolModel.IletisimBilgi" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.KullaniciKyt" Width="1.5" PointX="7.125" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AtikKontrolModel.TesisBilgisi" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="e06c5efa256643e18884265ff87fd4c4" Name="Diagram1">
+        <EntityTypeShape EntityType="AtikUygulamaModel.AtikEkle" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtikUygulamaModel.AtikIslem" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AtikUygulamaModel.KullaniciKyt" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

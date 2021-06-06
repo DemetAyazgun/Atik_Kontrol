@@ -22,6 +22,143 @@
     <link href="/Template/css/sb-admin-2.min.css" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+       <style>
+                    :root {
+              --input-padding-x: 1.5rem;
+              --input-padding-y: .75rem;
+            }
+
+            body {
+              background: #007bff;
+              background: linear-gradient(to right, #0062E6, #33AEFF);
+            }
+
+            .card-signin {
+              border: 0;
+              border-radius: 1rem;
+              box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .card-signin .card-title {
+              margin-bottom: 2rem;
+              font-weight: 300;
+              font-size: 1.5rem;
+            }
+
+            .card-signin .card-body {
+              padding: 2rem;
+            }
+
+            .form-signin {
+              width: 100%;
+            }
+
+            .form-signin .btn {
+              font-size: 80%;
+              border-radius: 5rem;
+              letter-spacing: .1rem;
+              font-weight: bold;
+              padding: 1rem;
+              transition: all 0.2s;
+            }
+
+            .form-label-group {
+              position: relative;
+              margin-bottom: 1rem;
+            }
+
+            .form-label-group input {
+              height: auto;
+              border-radius: 2rem;
+            }
+
+            .form-label-group>input,
+            .form-label-group>label {
+              padding: var(--input-padding-y) var(--input-padding-x);
+            }
+
+            .form-label-group>label {
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: block;
+              width: 100%;
+              margin-bottom: 0;
+              /* Override default `<label>` margin */
+              line-height: 1.5;
+              color: #495057;
+              border: 1px solid transparent;
+              border-radius: .25rem;
+              transition: all .1s ease-in-out;
+            }
+
+            .form-label-group input::-webkit-input-placeholder {
+              color: transparent;
+            }
+
+            .form-label-group input:-ms-input-placeholder {
+              color: transparent;
+            }
+
+            .form-label-group input::-ms-input-placeholder {
+              color: transparent;
+            }
+
+            .form-label-group input::-moz-placeholder {
+              color: transparent;
+            }
+
+            .form-label-group input::placeholder {
+              color: transparent;
+            }
+
+            .form-label-group input:not(:placeholder-shown) {
+              padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+              padding-bottom: calc(var(--input-padding-y) / 3);
+            }
+
+            .form-label-group input:not(:placeholder-shown)~label {
+              padding-top: calc(var(--input-padding-y) / 3);
+              padding-bottom: calc(var(--input-padding-y) / 3);
+              font-size: 12px;
+              color: #777;
+            }
+
+            .btn-google {
+              color: white;
+              background-color: #ea4335;
+            }
+
+            .btn-facebook {
+              color: white;
+              background-color: #3b5998;
+            }
+
+            /* Fallback for Edge
+            -------------------------------------------------- */
+
+            @supports (-ms-ime-align: auto) {
+              .form-label-group>label {
+                display: none;
+              }
+              .form-label-group input::-ms-input-placeholder {
+                color: #777;
+              }
+            }
+
+            /* Fallback for IE
+            -------------------------------------------------- */
+
+            @media all and (-ms-high-contrast: none),
+            (-ms-high-contrast: active) {
+              .form-label-group>label {
+                display: none;
+              }
+              .form-label-group input:-ms-input-placeholder {
+                color: #777;
+              }
+            }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,6 +182,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Anasayfa</span> </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="ButunKullanicilar.aspx">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Kullanıcı İşlemleri</span> </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -52,32 +194,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="Firma.aspx">
+                <a class="nav-link collapsed" href="AtikKayit.aspx">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Hesap(Firma, Kurum)</span>
+                    <span>Atık Kayıt</span>
                 </a>
                
                
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+    
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                <a class="nav-link collapsed" href="AtikTanim.aspx">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Atık Tanımı</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
+               
+               
             </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -98,7 +232,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -142,7 +276,7 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="Kullanici.aspx">
+                            <a class="nav-link dropdown-toggle" href="GirisKaydol.aspx">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Çıkış</span>
                                 <img class="img-profile rounded-circle"
                                     src="/Template/img/undraw_profile.svg">

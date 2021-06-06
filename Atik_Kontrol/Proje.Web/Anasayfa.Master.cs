@@ -11,6 +11,18 @@ namespace Proje.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["girisdurumu"].ToString() != "1")
+                {
+                    Response.Redirect("GirisKaydol.aspx");
+                }
+            }
+            catch (Exception)
+            {
+
+                Response.Redirect("GirisKaydol.aspx"); 
+            }
 
         }
     }

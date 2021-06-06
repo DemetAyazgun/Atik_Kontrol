@@ -15,12 +15,14 @@ namespace Proje.DataAccess
     public partial class KullaniciKyt
     {
         public int KullaniciID { get; set; }
-        public string TC { get; set; }
+        public string Tc { get; set; }
         public string Il { get; set; }
         public string Ilce { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string Tel { get; set; }
-        public string E_posta { get; set; }
+        public string Eposta { get; set; }
+        public string Sifre { get; set; }
+        public string SifreTekrar { get; set; }
     }
 }

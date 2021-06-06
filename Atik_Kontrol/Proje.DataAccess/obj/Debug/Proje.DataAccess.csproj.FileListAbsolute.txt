@@ -17,8 +17,8 @@ C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\bin\D
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.csprojAssemblyReference.cache
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CopyComplete
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.dll
 C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.pdb
+C:\Users\DEMET\Documents\GitHub\Atik_Kontrol\Atik_Kontrol\Proje.DataAccess\obj\Debug\Proje.DataAccess.csprojAssemblyReference.cache

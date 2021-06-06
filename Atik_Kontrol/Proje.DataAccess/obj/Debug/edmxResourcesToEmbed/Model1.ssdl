@@ -1,83 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AtikKontrolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="IletisimBilgi">
+<Schema Namespace="AtikUygulamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AtikEkle">
     <Key>
-      <PropertyRef Name="IletisimID" />
+      <PropertyRef Name="AtikID" />
     </Key>
-    <Property Name="IletisimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Il" Type="nvarchar(max)" />
-    <Property Name="Ilce" Type="nvarchar(max)" />
-    <Property Name="Bucak(Koy)" Type="nvarchar(max)" />
-    <Property Name="Mahalle" Type="nvarchar(max)" />
-    <Property Name="CSBM" Type="nvarchar(max)" />
-    <Property Name="DisKapi" Type="varchar" MaxLength="50" />
-    <Property Name="IcKapi" Type="varchar" MaxLength="50" />
-    <Property Name="Tel" Type="varchar" MaxLength="50" />
-    <Property Name="Fax" Type="varchar" MaxLength="50" />
-    <Property Name="E-posta" Type="varchar(max)" />
+    <Property Name="AtikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AtikAdres" Type="nvarchar(max)" />
+    <Property Name="AtikTur" Type="nvarchar" MaxLength="50" />
+    <Property Name="AtikIslem" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AtikIslem">
+    <Key>
+      <PropertyRef Name="TanimID" />
+    </Key>
+    <Property Name="TanimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Plaka" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ruhsat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Tur" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kurum" Type="nvarchar(max)" />
+    <Property Name="TAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="TSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="TTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ITarih" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="KullaniciKyt">
     <Key>
       <PropertyRef Name="KullaniciID" />
     </Key>
     <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TC" Type="varchar(max)" />
+    <Property Name="Tc" Type="nvarchar(max)" />
     <Property Name="Il" Type="nvarchar(max)" />
     <Property Name="Ilce" Type="nvarchar(max)" />
     <Property Name="Ad" Type="nvarchar(max)" />
     <Property Name="Soyad" Type="nvarchar(max)" />
-    <Property Name="Tel" Type="varchar" MaxLength="50" />
-    <Property Name="E-posta" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Eposta" Type="nvarchar(max)" />
+    <Property Name="Sifre" Type="nvarchar(max)" />
+    <Property Name="SifreTekrar" Type="nvarchar(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'AtikKontrol.dbo.TesisBilgisi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="TesisBilgisi">
-    <Key>
-      <PropertyRef Name="TesisID" />
-    </Key>
-    <Property Name="TesisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirmaAd" Type="nvarchar(max)" />
-    <Property Name="TesisAd" Type="nvarchar(max)" />
-    <Property Name="VergiNo" Type="int" />
-    <Property Name="Il" Type="nvarchar(max)" />
-    <Property Name="Ilce" Type="nvarchar(max)" />
-    <Property Name="Adres" Type="nvarchar(max)" />
-    <Property Name="KurumTur" Type="nvarchar(max)" />
-    <Property Name="YillikAtikMiktar" Type="int" />
-    <Property Name="YetkiliAdSoyad" Type="nvarchar(max)" />
-    <Property Name="YetkiliTel" Type="varchar" MaxLength="50" />
-    <Property Name="YetkiliE-posta" Type="varchar" MaxLength="50" />
-    <Property Name="KayitTarih" Type="datetime" />
-    <Property Name="KatSayisi" Type="int" />
-    <Property Name="Yemekhane" Type="nvarchar" MaxLength="50" />
-    <Property Name="YesilAlan" Type="nvarchar" MaxLength="50" />
-    <Property Name="Revir" Type="nvarchar" MaxLength="50" />
-    <Property Name="Aciklama" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityContainer Name="AtikKontrolModelStoreContainer">
-    <EntitySet Name="IletisimBilgi" EntityType="Self.IletisimBilgi" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="AtikUygulamaModelStoreContainer">
+    <EntitySet Name="AtikEkle" EntityType="Self.AtikEkle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AtikIslem" EntityType="Self.AtikIslem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KullaniciKyt" EntityType="Self.KullaniciKyt" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TesisBilgisi" EntityType="Self.TesisBilgisi" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TesisBilgisi].[TesisID] AS [TesisID], 
-    [TesisBilgisi].[FirmaAd] AS [FirmaAd], 
-    [TesisBilgisi].[TesisAd] AS [TesisAd], 
-    [TesisBilgisi].[VergiNo] AS [VergiNo], 
-    [TesisBilgisi].[Il] AS [Il], 
-    [TesisBilgisi].[Ilce] AS [Ilce], 
-    [TesisBilgisi].[Adres] AS [Adres], 
-    [TesisBilgisi].[KurumTur] AS [KurumTur], 
-    [TesisBilgisi].[YillikAtikMiktar] AS [YillikAtikMiktar], 
-    [TesisBilgisi].[YetkiliAdSoyad] AS [YetkiliAdSoyad], 
-    [TesisBilgisi].[YetkiliTel] AS [YetkiliTel], 
-    [TesisBilgisi].[YetkiliE-posta] AS [YetkiliE-posta], 
-    [TesisBilgisi].[KayitTarih] AS [KayitTarih], 
-    [TesisBilgisi].[KatSayisi] AS [KatSayisi], 
-    [TesisBilgisi].[Yemekhane] AS [Yemekhane], 
-    [TesisBilgisi].[YesilAlan] AS [YesilAlan], 
-    [TesisBilgisi].[Revir] AS [Revir], 
-    [TesisBilgisi].[Aciklama] AS [Aciklama]
-    FROM [dbo].[TesisBilgisi] AS [TesisBilgisi]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>
